@@ -1,0 +1,6 @@
+[Language-Tool] Windows套件管理工具 — Chocolatey
+https://medium.com/@yk61035/language-tool-windows%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-chocolatey-6bd29220b6bc
+
+Docker
+git
+visual studio code
