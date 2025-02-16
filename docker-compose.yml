@@ -17,9 +17,15 @@ services:
         max-size: '5g'
     environment:
       # 配置root密码
-      MYSQL_ROOT_PASSWORD: xj2022
+      MYSQL_ROOT_PASSWORD: abc123
     volumes:
       # 挂载数据目录
       - "./mysql/data:/var/lib/mysql" 
       # 挂载配置文件目录
       - "./mysql/config:/etc/mysql/conf.d"      
+      # 数据库初始化
+      - "./mysql/init:/docker-entrypoint-initdb.d"
+
+#docker-compose stop
+
+#docker-compose down
