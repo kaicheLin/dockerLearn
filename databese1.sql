@@ -41,4 +41,34 @@ SELECT department_id "部門id" FROM employees; -- 別名
 SELECT DISTINCT department_id FROM employees; -- DISTINCT 不重複
 SELECT DISTINCT job_id, department_id FROM employees;
 SELECT salary, commission_pct, salary * (1 + IFNULL(commission_pct, -1)) * 12  FROM employees; -- IFNULL 運算時將NULL替為,後的值
+SELECT * FROM `order`; -- (`...`) 萬一自訂名與關鍵字相同 要加 `...` 區分
+SELECT 'E公司' AS '公司名稱', 010 '編號', employee_id, first_name FROM employees;
+DESCRIBE employees -- 顯示表的結構 DESCRIBE = DESC
+
+SELECT job_id, department_id, commission_pct
+FROM employees
+WHERE commission_pct <=> NULL; -- <=> 可以比較 NULL 的 = 符號
+
+SELECT job_id, department_id, commission_pct
+FROM employees
+WHERE commission_pct IS NULL; 
+
+SELECT job_id, department_id, commission_pct
+FROM employees
+WHERE ISNULL(commission_pct);
+
+SELECT job_id, department_id, commission_pct
+FROM employees
+WHERE NOT 0; -- 只顯示判斷結果為true的 (NULL 不是 true)
+SELECT 1 ; -- FROM DUAL 可以不寫
+SELECT LEAST('a', 'b', 'c'); -- 最小值
+SELECT LEAST('3a', '2b', '1c');
+SELECT LEAST('3a', '11b', '12c');
+SELECT LEAST('11a', '11b', '11');
+SELECT LEAST('', 0, '0');
+SELECT 0 = '0';
+SELECT GREATEST('a', 'b', 'c'); -- 最大值
+
+
+
 
