@@ -1,4 +1,4 @@
--- 這是註解
+`employees`-- 這是註解
 # 這也是註解
 
 /*
@@ -21,20 +21,6 @@
 # DCL 資料控制語言 (Data Control Language)
 # 是一種可對資料存取權進行控制
 # commit rollback savepoint
-
-
-CREATE DATABASE databaseTest;   -- 建立新資料庫
-SHOW DATABASES; -- 查看所有資料庫
-USE databaseTest;   -- 使用/定位到資料庫
-CREATE TABLE tableTest(id int, name varchar(20), age int);  -- 建立新資料表 (欄位 型態)
-SHOW TABLE;    -- 查看所有資料表
-INSERT INTO tableTest values (1, 'man1', 15);   -- 輸入 資料values(...) 到 資料表tableTest
-INSERT INTO tableTest values (2, '一個人', 14);
-INSERT INTO tableTest values (3, 'man2', 16);
-DELETE FROM tableTest WHERE id = 3;     -- 刪除 資料表tableTest 欄位id=3 的內容
-SELECT * FROM tableTest;    -- 查看 資料表tableTest 所有內容
-
-
 
 USE atguigudb;
 SELECT department_id "部門id" FROM employees; -- 別名
@@ -68,7 +54,21 @@ SELECT LEAST('11a', '11b', '11');
 SELECT LEAST('', 0, '0');
 SELECT 0 = '0';
 SELECT GREATEST('a', 'b', 'c'); -- 最大值
-
-
-
+SELECT employee_id, department_name, employees.department_id
+FROM employees, departments
+WHERE employees.department_id = departments.department_id;
+SELECT employee_id, job_id, salary, department_name, city
+FROM employees, departments, locations
+WHERE employees.department_id = departments.department_id 
+AND departments.location_id = locations.location_id
+AND salary >= 8000
+AND city IN ('Oxford', 'Toronto', 'Munich')
+ORDER BY job_id ASC, salary DESC;
+SELECT employee_id, job_id, salary, department_name, city
+FROM employees
+LEFT OUTER JOIN departments ON employees.department_id = departments.department_id 
+LEFT OUTER JOIN locations ON departments.location_id = locations.location_id;
+SELECT department_name, city
+FROM departments
+JOIN locations ON departments.location_id = locations.location_id;
 
